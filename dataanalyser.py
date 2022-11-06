@@ -2,11 +2,13 @@ import sys
 import re
 
 
+#Finds which grid a given position is located in.
 def findPos(grids,x,y):
     for i in range(1,columns*rows):
         if(x>grids[i]["minX"] and y>grids[i]["minY"] and x<=grids[i]["maxX"] and y<=grids[i]["maxY"]):
             return i
 
+#Populates the given group's dictionary by traversing the data received from the file.
 def populateDict(grids,fileString,groupType):
     for i in range(1, len(fileString)):
         currentLine = re.split(",", re.sub("\s", "", fileString[i]))
@@ -16,6 +18,7 @@ def populateDict(grids,fileString,groupType):
         grids[index][groupType]["timeViewed"] += int(currentLine[3])
         grids[index][groupType]["noOfFixations"] += 1
 
+#Reads the given file and calls populate method for it.
 def interpretFiles (fileName,grids):
     try:
         file = open(fileName, "r")
