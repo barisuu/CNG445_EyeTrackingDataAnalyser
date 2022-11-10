@@ -44,6 +44,7 @@ currentRow = 1
 
 
 #Populate dictionary with grid information   Bunu ayrı function yapsak iyi olr
+#Olur
 for i in range(rows*columns):
     grids[i+1] = {
         "ASD": {
